@@ -1,9 +1,9 @@
-from fedora:latest
+from fedora:26
 expose 22
 RUN dnf -y update && dnf -y install curl \
-    subversion wget git make environment-modules \
+    subversion gdb wget git make environment-modules \
     libtool gcc-c++ unzip cmake mpich-devel \
-    boost-mpich-devel which python openssh-server \
+    boost-mpich-devel python openssh-server \
     procps mc nmap sudo passwd && dnf clean all 
 RUN mkdir /var/run/sshd && \
     sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
