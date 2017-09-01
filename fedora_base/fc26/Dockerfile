@@ -5,6 +5,7 @@ RUN dnf -y update && dnf -y install curl \
     libtool gcc-c++ unzip cmake mpich-devel \
     boost-mpich-devel python openssh-server \
     procps mc nmap sudo passwd && dnf clean all 
+run dnf -y update vim-minimal && dnf -y install vim-enhanced
 RUN mkdir /var/run/sshd && \
     sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
     echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
